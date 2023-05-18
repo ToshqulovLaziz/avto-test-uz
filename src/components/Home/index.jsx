@@ -2,20 +2,13 @@ import React from "react";
 import {Fragment} from "react";
 import { lang } from "../../localization/localization";
 import { Link } from "react-router-dom";
-// import { Context as LangContext } from "../../context/Language";
+import { Context as LangContext } from "../../context/Language";
 import "./home.scss";
 
 const Home = () => {
 
-//  const [language, setLanguage] = React.useContext(LangContext); 
-const [language, setLanguage] = React.useState(
-  localStorage.getItem("language") || "uz"
-);
-
-  const changeLanguage = (value) => {
-    localStorage.setItem("language", value);
-    setLanguage(value);
-  };
+ const {language,changeLanguage} = React.useContext(LangContext);
+  
     return (
       <Fragment>
         <main className="main">

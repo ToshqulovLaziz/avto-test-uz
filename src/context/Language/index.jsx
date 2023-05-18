@@ -7,11 +7,15 @@ const Provider = ({children}) => {
     const [language, setLanguage] = React.useState(
       localStorage.getItem("language") || "uz"
     );
+    const changeLanguage = (value) => {
+      localStorage.setItem("language", value);
+      setLanguage(value);
+    };
 
     return (
         <Context.Provider value={{
             language,
-            setLanguage
+            changeLanguage
         }}>
             {children}
         </Context.Provider>
